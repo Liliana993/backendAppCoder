@@ -1,0 +1,64 @@
+<h1>Productos en Tiempo Real</h1>
+
+<h2>Agregar producto</h2>
+
+<form id="productForm">
+    <input type="text" name="title" placeholder="Título" required>
+    <input type="text" name="description" placeholder="Descripción" required>
+    <input type="number" name="price" placeholder="Precio" required>
+    <input type="text" name="category" placeholder="Categoría" required>
+    <input type="text" name="code" placeholder="Código" required>
+    <input type="number" name="stock" placeholder="Stock" required>
+
+    <button type="submit">Agregar</button>
+</form>
+
+<hr>
+
+<div id="productList">
+{{#each products}}
+    <div>
+        <h3>{{this.title}}</h3>
+        <p>${{this.price}}</p>
+
+        <button class="deleteBtn" data-id="{{this._id}}">
+            Eliminar
+        </button>
+    </div>
+{{/each}}
+</div>
+
+<script>
+const form = document.getElementById("productForm");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form));
+
+    await fetch("/api/products", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    form.reset();
+});
+
+document.addEventListener("click", async (e) => {
+    if (e.target.classList.contains("deleteBtn")) {
+        const id = e.target.dataset.id;
+
+        await fetch(`/api/products/${id}`, {
+            method: "DELETE"
+        });
+    }
+});
+
+socket.on("productsUpdated", () => {
+    location.reload();
+});
+</script>
+
