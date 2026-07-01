@@ -167,6 +167,6 @@ Podés agregar imágenes de:
 
 # 👩‍💻 Autora
 
-**Beatriz Escobar**
+**Liliana Beatriz Escobar**
 
 Proyecto desarrollado como parte del curso **Backend** de Coderhouse.
