@@ -157,9 +157,11 @@ Implementación de Socket.IO para:
 Podés agregar imágenes de:
 
 - Listado de productos.
+- <img src="https://res.cloudinary.com/dcfo0mbfj/image/upload/v1782947064/getAllproducts_zisjl7.png">
 - Detalle del producto.
+- <img src="https://res.cloudinary.com/dcfo0mbfj/image/upload/v1782947092/getIdproduct_u162ya.png">
 - Carrito.
-- Vista en tiempo real.
+- <img src="https://res.cloudinary.com/dcfo0mbfj/image/upload/v1782947113/cartPushProduct_yzngk9.png">
 
 ---
 
